@@ -1,4 +1,3 @@
-
 These tests are meant as a how to do the most basic unit tests of different angular
 components.
 
@@ -8,6 +7,9 @@ components.
     $ npm install
     $ npm test
 
+## TODO
+
+  * [States](https://github.com/angular-ui/ui-router) with resolutions
 
 
 ## [formControllerSpec](test/formControllerSpec.js)
