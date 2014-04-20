@@ -1,0 +1,30 @@
+{
+  "name": "angular-unittesting",
+  "version": "0.0.1",
+  "description": "Angular unit testing setup",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "karma": "~0.12.9",
+    "karma-chrome-launcher": "~0.1.3",
+    "karma-jasmine": "~0.1.5"
+  },
+  "devDependencies": {
+    "karma-chrome-launcher": "~0.1.3",
+    "karma-jasmine": "~0.1.5",
+    "karma": "~0.12.9"
+  },
+  "scripts": {
+    "test": "node_modules/karma/bin/karma start karma.conf"
+  },
+  "keywords": [
+    "angular",
+    "jasmine",
+    "unit",
+    "test"
+  ],
+  "author": "Jacob Wejendorp",
+  "license": "BSD"
+}
