@@ -19,7 +19,8 @@ describe('Form controller', function() {
     var scope = $rootScope.$new();
     // Any html will do. For convenience we'll use the cache:
     var template = $templateCache.get('myForm.html');
-    $compile(template)(scope);
+    // Save the angular.element to validate template behavior:
+    var element = $compile(template)(scope);
 
     // scope.myForm should now be a $formController
     expect(scope.myForm).toBeDefined();
@@ -29,11 +30,21 @@ describe('Form controller', function() {
     expect(scope.myForm.$valid).toBe(false);
     expect(scope.myForm.input.$valid).toBe(false);
 
+    // Does the DOM do as expected?
+    // with jqLite you can only select by tagname:
+    // var input = element.find('input').next();
+    //
+    // With jQuery you can use attribute selectors etc.
+    var input = element.find('input[type="submit"]');
+    expect(input.attr('disabled')).toBeTruthy();
+
     // Update model. Remember to run the digest for all changes
     scope.model = 'angular';
     scope.$digest();
 
     expect(scope.myForm.$valid).toBe(true);
     expect(scope.myForm.input.$valid).toBe(true);
+    // And DOM?
+    expect(input.attr('disabled')).toBeFalsy();
   });
 });

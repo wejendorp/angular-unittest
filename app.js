@@ -1,6 +1,12 @@
 var app = angular.module('MyApp', []);
 app.run(function($templateCache) {
-  var myForm = '<form name="myForm"><input name="input" ng-model="model" required /></form>';
+  var form = [];
+  form.push('<form name="myForm">');
+  form.push('<input name="input" ng-model="model" required ng-class="{invalid: myForm.input.$invalid}" />');
+  form.push('<input type="submit" ng-disabled="myForm.$invalid" />');
+  form.push('</form>');
+  var myForm = form.join('');
+
   $templateCache.put('myForm.html', myForm);
 });
 
