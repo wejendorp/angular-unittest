@@ -20,3 +20,17 @@ forms on their scope.
 _In short_: `$compile` your template, passing in the controller scope to
 initialize the `scope.formName` references before handing it to your controller.
 Remember to run `scope.$digest()` to intialize the state.
+
+Example:
+```js
+var scope    = $rootScope.$new();
+var template = $templateCache.get('myTemplate');
+var element  = $compile(template)(scope);
+
+// Change some stuff here
+
+scope.$digest();
+
+/// Validate changes here
+
+```
