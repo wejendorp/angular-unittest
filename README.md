@@ -1,13 +1,17 @@
+# Angular unittest
+
 These tests are meant as a how to do the most basic unit tests of different angular
 components. Either where the angular documentation falls short, or for commonly used
 non-standard libraries.
+
+If you have not read the official [unit testing guide](https://docs.angularjs.org/guide/unit-testing),
+start there.
 
 ## Instructions
 
     $ bower install
     $ npm install
     $ npm test
-
 
 
 ## [Controllers with forms](test/formControllerSpec.js)
@@ -24,9 +28,9 @@ initialize the `scope.formName` references before handing it to your controller.
 Remember to run `scope.$digest()` to intialize the state.
 
 This has the added benefit of letting you access the
-[angular.element](https://docs.angularjs.org/api/ng/function/angular.element)
-that is returned when calling compile, and getting template behavior into your
-tests.
+[element](https://docs.angularjs.org/api/ng/function/angular.element)
+that is returned when compiling the template, and getting template behavior into
+your tests.
 
 ```js
 var scope    = $rootScope.$new();
