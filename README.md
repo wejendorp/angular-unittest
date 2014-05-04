@@ -25,7 +25,7 @@ The `npm test` command is configured in `package.json` and is an alias for
 `bower install` followed by `karma start karma.conf`.
 
 
-## [Controllers with forms](test/formControllerSpec.js)
+## Controllers with forms
 There is little documentation available on unit testing controllers
 that depend on a [$formController](https://docs.angularjs.org/api/ng/type/form.FormController).
 You depend on FormControllers whenever you access a form on the scope.
@@ -111,10 +111,19 @@ it('should resolve data', function() {
 For a simple example as a full jasmine test, see the sample [appStateSpec](test/appStateSpec.js).
 
 ### Nested states
-The method used above for `invoke($state.current.resolve.data)` will only work
-to check resolutions defined on the chosen state.
+
+```js
+expect($state.$current.locals.globals.data).toBe('findAll');
+```
+Note the difference. The method used above for `invoke($state.current.resolve.data)`
+will only check resolutions defined on the chosen state.
 For **nested states**, the resolved data is available as `$state.$current.locals.globals`,
 which includes resolutions from parent states.
+
+* Use `invoke` to get the isolated resolutions for the chosen state.
+* Use `$state.$current.locals.globals` to get all resolutions of this state and
+its parents.
+
 
 
 ### See also
