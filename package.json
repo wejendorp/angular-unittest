@@ -11,10 +11,11 @@
   "devDependencies": {
     "karma-chrome-launcher": "~0.1.3",
     "karma-jasmine": "~0.1.5",
-    "karma": "~0.12.9"
+    "karma": "~0.12.9",
+    "bower": "~1.3.3"
   },
   "scripts": {
-    "test": "node_modules/karma/bin/karma start karma.conf"
+    "test": "node_modules/.bin/bower install && node_modules/karma/bin/karma start karma.conf"
   },
   "keywords": [
     "angular",
